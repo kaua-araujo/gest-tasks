@@ -17,21 +17,9 @@ class IndexTasks extends Component
 
     public function render()
     {
-        $categories = Categorie::get();
         $tasks = Task::with('categorie')->get();
         return view('livewire.index-tasks',[
             'tasks' => $tasks,
-            'categories' => $categories
         ]);
-    }
-
-    public function create()
-    {
-        $this->validate();
-        Categorie::create([
-            'title' => $this->title,
-        ]);
-
-        $this->title = '';
     }
 }
