@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('title');
-            $table->enum('status', ['approved', 'progress', 'canceled']);
+            $table->string('description', 500);
+            $table->enum('status', ['completed', 'progress', 'canceled']);
             $table->date('start_date');
             $table->date('end_date');
             $table->uuid('categorie_id');

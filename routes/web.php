@@ -1,14 +1,11 @@
 <?php
 
+use App\Livewire\HomeGest;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\IndexCategories;
 use App\Livewire\IndexTasks;
 
 
-Route::get('/categorias', function () {
-    return view('welcome');
-});
-Route::get('/tasks', IndexTasks::class);
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeGest::class)->name('home');
+Route::get('/tasks', IndexTasks::class)->name('indexTasks');
+Route::get('/categorias', IndexCategories::class)->name('indexCategories');
