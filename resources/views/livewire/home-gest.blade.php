@@ -1,4 +1,9 @@
 <div>
+    @if ($errors->any())
+        <div class="error hidden">
+            {{ $errors->first() }}
+        </div>
+    @endif
     <div class="flex items-center justify-center  content-center p-10">
         {{-- Card principal --}}
         <div class="mx-auto rounded-lg bg-gray-100 p-10 shadow-2xl">
@@ -47,37 +52,44 @@
                                     <div class="flex pt-2  text-sm text-gray-500">
                                         <div class="flex-1 inline-flex items-center">
                                             <i class="fa-solid fa-calendar-days"></i>
-                                            <p class=""> {{ date( 'd/m/Y' , strtotime($task->start_date)) }} </p>
+                                            <p class="ml-1"> {{ date( 'd/m/Y' , strtotime($task->start_date)) }} </p>
                                         </div>
                                         @switch($task->status)
-                                            @case('approved')
-                                                <div class=" pl-6 plr-6  flex-1 inline-flex items-center">
-                                                    <div class="bg-emerald-300 rounded-lg">
-                                                        <p class="p-1">Aprovado</p>
+                                            @case('completed')
+                                                <div class="flex items-center">
+                                                    <div class="middle none center rounded-lg border border-emerald-300 py-1 px-1 font-sans text-xs font-bold uppercase text-emerald-500 transition-all hover:opacity-75 focus:ring focus:ring-emerald-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                                        <p class="p-1">Concluido</p>
 
                                                     </div>
                                                 </div>
                                                 @break
                                             @case('progress')
-                                                <div class=" pl-6 plr-6  inline-flex items-center">
-                                                    <div class="bg-yellow-300 rounded-lg ">
+                                                <div class=" flex items-center">
+                                                    <div class="middle none center rounded-lg border border-yellow-300 py-1 px-1 font-sans text-xs font-bold uppercase text-yellow-500 transition-all hover:opacity-75 focus:ring focus:ring-yellow-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                                                         <p class="p-1">Em progresso</p>
 
                                                     </div>
                                                 </div>
                                                 @break
                                             @case('canceled')
-                                                <div class=" pl-6 plr-6 flex-1 inline-flex items-center">
-                                                    <div class="bg-rose-500 rounded-lg">
+                                                <div class="flex items-center">
+                                                    <div class="middle none center rounded-lg border border-rose-300 py-1 px-1 font-sans text-xs font-bold uppercase text-rose-500 transition-all hover:opacity-75 focus:ring focus:ring-rose-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                                                         <p class="p-1">Cancelado</p>
                                                     </div>
                                                 </div>
                                                 @break
                                         @endswitch
-
-                                        <button  class="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </button>
+                                        
+                                    </div>
+                                    <div class="flex items-center content-center justify-center">
+                                        <div class="mt-2 middle none center mr-3 rounded-lg py-3 px-2 font-sans text-xs font-bold uppercase text-gray-500 transition-all hover:opacity-75 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                            Categoria: {{ $task->categorie->title }}
+                                        </div>
+                                        <a href="{{ route('showTask', $task->id) }}">
+                                            <button  class="flex-no-shrink mt-2 bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

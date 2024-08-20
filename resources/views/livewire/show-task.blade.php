@@ -17,7 +17,7 @@
                 </div>
                 <div class=" flex items-center justify-center">
                     <div class=" text-2xl font-semibold text-[#07074D]">
-                        Cadastrar Tarefa
+                        Editar Tarefa
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                         <label for="title" class="mb-3 block text-xl font-semibold text-[#07074D]">
                             Titulo:
                         </label>
-                        <input type="text" name="title" id="title" wire:model.live="title" placeholder="Informe o titulo da tarefa" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
+                        <input type="text" name="title" id="title" value="{{ $task->title }}" wire:model.live="title" placeholder="Informe o titulo da tarefa" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
                     </div>
             
                     <div class="mb-6 pt-4">
@@ -34,7 +34,8 @@
                             Descrição da tarefa:
                         </label>
                         <div class="mb-8">
-                            <textarea name="description" id="description" wire:model.live="description" cols="30" rows="10" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" placeholder="Informe a descrição" ></textarea>
+                            <textarea name="description" id="description" wire:model.live="description" cols="30" rows="10" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" 
+                            placeholder="Informe a descrição">{{$task->description }} </textarea>
                         </div>
 
                         <label for="start_date" class="mb-5 block text-xl font-semibold text-[#07074D]">Data de inicio</label>
@@ -44,7 +45,7 @@
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                 </svg>
                             </div>
-                            <input type="date" name="start_date" id="start_date" wire:model.live="start_date" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <input type="date" value="{{ $task->start_date }}" name="start_date" id="start_date" wire:model.live="start_date" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                         </div>
 
                         <label for="end_date" class="mb-5 block text-xl font-semibold text-[#07074D]">Data de Término</label>
@@ -54,12 +55,12 @@
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                 </svg>
                             </div>
-                            <input type="date" name="end_date" id="end_date" wire:model.live="end_date" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <input type="date" value="{{ $task->end_date }}" name="end_date" id="end_date" wire:model.live="end_date" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                         </div>
                     
                         <label for="categorie_id" class="mb-5 block text-xl font-semibold text-[#07074D]">Categoria</label>
                         <select  wire:model.live="categorie_id" name="categorie_id" id="categorie_id" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
-                            <option>Selecione a categoria</option>
+                            <option selected value="{{ $task->categorie->id }}">{{ $task->categorie->title }}</option>
                             @foreach ($categories as $categorie)
                                 <option value="{{$categorie->id}}"> {{$categorie->title}} </option>
                             @endforeach
@@ -67,7 +68,7 @@
                     </div>
                     <div class="flex content-center justify-center">
                         <button type="submit" id="buttonSubmit" class="hover:shadow-form md:w-6/12 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none hover:drop-shadow[#6A64F1] focus:opacity-[0.85]  hover:bg-[#4d47c5]">
-                            Cadastrar Tarefa
+                            Editar Tarefa
                         </button>
                     </div>
                 </form>
