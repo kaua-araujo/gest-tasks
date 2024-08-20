@@ -1,5 +1,5 @@
 <div>
-    <div class="flex items-center justify-center p-10 ">
+    <div class="flex items-center justify-center  content-center p-10">
         {{-- Card principal --}}
         <div class="mx-auto rounded-lg bg-gray-100 p-10 shadow-2xl">
             <div class="flex items-center justify-center">
@@ -7,23 +7,32 @@
                     GestTask
                 </div>
             </div>
-            <div class="pt-10 items-center md:flex md:justify-center">
-                <div class="button justify-center">
-                    <button class="middle none center mr-3 rounded-lg bg-cyan-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
-                        Nova Categoria
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                    <button class="middle none center mr-3 rounded-lg bg-emerald-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-emerald-500/20 transition-all hover:shadow-lg hover:shadow-emerald-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
-                        Nova Tarefa
-                        <i class="fa-solid fa-plus p-1"></i>
-                    </button>
+            <div class="pt-10 items-center md:flex md:justify-center sm:flex sm:flex-col">
+                <div class="flex flex-col md:flex-row md:">
+                    <a href="{{ route('formCreateCategorie') }}">
+                        <button class="middle none center w-full md:w-auto h-10 mr-3 rounded-lg bg-cyan-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
+                            Nova Categoria
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </a>
+                    <a href="{{ route('formCreateTask') }}" class="pt-5 md:pt-0">
+                        <button class="middle none center w-full  md:w-auto h-10 mr-3 rounded-lg bg-emerald-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-emerald-500/20 transition-all hover:shadow-lg hover:shadow-emerald-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
+                            Nova Tarefa
+                            <i class="fa-solid fa-plus p-1"></i>
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class='max-w-md mx-auto space-y-6'>
                 {{-- cards tasks --}}
-                <div class="pt-10 flex flex-col items-center min-h-screen bg-center bg-cover">
+                <div class="pt-10 flex flex-col items-center bg-center bg-cover">
+                    @if (count($tasks) < 1)
+                        <div class=" font-semibold">
+                            Nenhuma task encontrada!
+                        </div>
+                    @endif
                     @foreach ($tasks as $task)
-                        <div class="bg-white border border-white shadow-lg  rounded-3xl p-4 m-4">
+                        <div class="bg-white border border-white shadow-lg w-full rounded-3xl p-4 m-4">
                             <div class="flex-none sm:flex">
                                 <div class="flex-auto sm:ml-5 justify-evenly">
                                     <div class="flex items-center justify-between sm:mt-2">
@@ -79,42 +88,4 @@
             </div>
         </div>
     </div>
-
-
-        {{-- <form action="">
-            <label for="title">Titulo</label>
-            <br>
-            <input type="text" placeholder="Informe o titulo da terefa">
-            <br>
-            <label for="description">Descrição</label>
-            <br>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            <br>
-            <label for="status">Status</label>
-            <br>
-            <select name="status" id="status">
-                <option value="completed">Concluido</option>
-                <option value="progress">Em progresso</option>
-                <option value="canceled">Cancelado</option>
-            </select>
-            <label for="start_date">Data de inicio</label>
-            <br>
-            <input type="date">
-            <br>
-            <label for="end_date">Data de Término</label>
-            <br>
-            <input type="date">
-            <br>
-            <label for="categorie_id">Categoria</label>
-            <br>
-            <select name="categorie_id" id="categorie_id">
-
-            </select>
-            <br>
-        </form> --}}
-
-    {{-- @foreach ($tasks as $task)
-        {{ $task->title }} - {{ $task->categorie->title }}
-        <br>
-    @endforeach --}}
 </div>
