@@ -31,7 +31,8 @@ class Task extends Model
     protected $fillable = [
         'title',
         'status',
-        'requests_additional_id',
+        'description',
+        'start_date',
         'end_date',
         'categorie_id',
     ];
