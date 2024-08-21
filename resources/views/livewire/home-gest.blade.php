@@ -79,7 +79,7 @@
                                                 </div>
                                                 @break
                                         @endswitch
-                                        
+
                                     </div>
                                     <div class="flex items-center content-center justify-center">
                                         <div class="mt-2 middle none center mr-3 rounded-lg py-3 px-2 font-sans text-xs font-bold uppercase text-gray-500 transition-all hover:opacity-75 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
@@ -88,6 +88,11 @@
                                         <a href="{{ route('showTask', $task->id) }}">
                                             <button  class="flex-no-shrink mt-2 bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
                                                 <i class="fa-solid fa-pen"></i>
+                                            </button>
+                                        </a>
+                                        <a href="{{ route('destroyTask', $task->id) }}">
+                                            <button  class="flex-no-shrink mt-2 bg-rose-400 hover:bg-rose-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-rose-300 hover:border-rose-500 text-white rounded-full transition ease-in duration-300">
+                                                <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </a>
                                     </div>

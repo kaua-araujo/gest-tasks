@@ -20,16 +20,10 @@ class IndexTasks extends Component
     {
         $categories = $service->execute();
 
-        dd($categories);
         $tasks = Task::with('categorie')->get();
         return view('livewire.index-tasks',[
             'tasks' => $tasks,
             'categories' => $categories
         ]);
-    }
-
-    public function create(CreateCategorieService $service)
-    {
-        $service->execute();
     }
 }
