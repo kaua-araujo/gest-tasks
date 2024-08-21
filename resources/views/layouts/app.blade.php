@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/') }}">
     @vite('resources/css/app.css')
     @livewireStyles
+    <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <div>

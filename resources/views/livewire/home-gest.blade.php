@@ -14,10 +14,10 @@
             </div>
             <div class="pt-10 items-center md:flex md:justify-center sm:flex sm:flex-col">
                 <div class="flex flex-col md:flex-row md:">
-                    <a href="{{ route('formCreateCategorie') }}">
+                    <a href="{{ route('indexCategories') }}">
                         <button class="middle none center w-full md:w-auto h-10 mr-3 rounded-lg bg-cyan-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
-                            Nova Categoria
-                            <i class="fa-solid fa-plus"></i>
+                            Categorias
+                            <i class="fa-solid fa-list"></i>
                         </button>
                     </a>
                     <a href="{{ route('formCreateTask') }}" class="pt-5 md:pt-0">
@@ -90,11 +90,10 @@
                                                 <i class="fa-solid fa-pen"></i>
                                             </button>
                                         </a>
-                                        <a href="{{ route('destroyTask', $task->id) }}">
-                                            <button  class="flex-no-shrink mt-2 bg-rose-400 hover:bg-rose-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-rose-300 hover:border-rose-500 text-white rounded-full transition ease-in duration-300">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </a>
+                                       
+                                        <button id="{{$task->id}}" name={{$task->title}} class="deleteButtonTask flex-no-shrink mt-2 bg-rose-400 hover:bg-rose-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-rose-300 hover:border-rose-500 text-white rounded-full transition ease-in duration-300">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
