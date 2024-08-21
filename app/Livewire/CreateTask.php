@@ -18,7 +18,7 @@ class CreateTask extends Component
             'title' => 'required',
             'description' => 'required',
             'start_date' => 'required',
-            'end_date' => 'required',
+            'end_date' => 'required|after_or_equal:start_date',
             'categorie_id' => 'required',
     ];
 
@@ -28,6 +28,7 @@ class CreateTask extends Component
         'start_date.required' => 'É necessário informar a data de inicio!',
         'end_date.required' => 'É necessário informar a data de termino!',
         'categorie_id.required' => 'É necessário informar a categoria!',
+        'end_date.after_or_equal' => 'A data de término deve ser maior que a de inicio!',
     ];
 
     public function render(IndexCategorieService $indexCategorieService)

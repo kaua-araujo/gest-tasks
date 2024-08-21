@@ -52,3 +52,37 @@ $(".deleteButtonTask").on("click", function() {
         }
       });
 });
+
+$(".deleteButtoncategorie").on("click", function() {
+    let id = $(this).attr("id");
+    let name = $(this).attr("name");
+    Swal.fire({
+        title: "Reamente deseja apagar a categoria "+ name +" ?",
+        text: "Isso deletará todas as tasks vinculadas a essa categoria!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "DELETAR"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Categoria deletada!",
+            icon: "success"
+          });
+          $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url:"/deletar-categoria/"+id,
+            method:'POST',
+            data:{
+                id:id
+            },
+            dataType:'json',
+            success:function(data)
+            {
+            }
+        });
+        location.reload();
+        }
+      });
+});

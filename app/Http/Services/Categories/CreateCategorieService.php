@@ -11,8 +11,12 @@ class CreateCategorieService
     public function __construct(Categorie $model) {
         $this->model = $model;
     }
-    public function execute()
+    public function execute($data)
     {
-        dd('opa');
+        Categorie::Create([
+            'title' => $data,
+        ]);
+        return redirect()->route('indexCategories');
+       
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Services\Categories;
 
+use App\Http\Services\Tasks\DestroyTaskWithIdCategorieService;
 use App\Models\Categorie;
 
 class DestroyCategorieService
@@ -13,12 +14,14 @@ class DestroyCategorieService
     }
     public function execute($id)
     {
+
         $categorie = $this->model::find($id);
+
 
         if (!$categorie) {
             return null;
         }
-
+        
         return $categorie->delete($id);
     }
 }

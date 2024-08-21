@@ -14,10 +14,10 @@
             </div>
             <div class="pt-10 items-center md:flex md:justify-center sm:flex sm:flex-col">
                 <div class="flex flex-col md:flex-row md:">
-                    <a href="{{ route('formCreateCategorie') }}">
+                    <a href="{{ route('indexCategories') }}">
                         <button class="middle none center w-full md:w-auto h-10 mr-3 rounded-lg bg-cyan-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-cyan-500/20 transition-all hover:shadow-lg hover:shadow-cyan-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
-                            Nova Categoria
-                            <i class="fa-solid fa-plus"></i>
+                            Categorias
+                            <i class="fa-solid fa-list"></i>
                         </button>
                     </a>
                     <a href="{{ route('formCreateTask') }}" class="pt-5 md:pt-0">
