@@ -90,11 +90,10 @@
                                                 <i class="fa-solid fa-pen"></i>
                                             </button>
                                         </a>
-                                        <a href="{{ route('destroyTask', $task->id) }}">
-                                            <button  class="flex-no-shrink mt-2 bg-rose-400 hover:bg-rose-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-rose-300 hover:border-rose-500 text-white rounded-full transition ease-in duration-300">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </a>
+                                       
+                                        <button id="{{$task->id}}" name={{$task->title}} class="deleteButtonTask flex-no-shrink mt-2 bg-rose-400 hover:bg-rose-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-rose-300 hover:border-rose-500 text-white rounded-full transition ease-in duration-300">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
