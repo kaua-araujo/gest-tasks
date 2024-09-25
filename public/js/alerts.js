@@ -15,7 +15,7 @@ $("#buttonSubmit").on("click", function() {
             Toast.fire({
                 icon: "error",
                 color: '#353535',
-                background: "#FFEB3B",
+                background: "#FFC107",
                 title: error,
         });
     }
